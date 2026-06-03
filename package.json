@@ -1,0 +1,9 @@
+{
+  "name": "eva",
+  "private": true,
+  "scripts": {
+    "flora": "npm --prefix flora run dev",
+    "flora:build": "npm --prefix flora run build",
+    "flora:preview": "npm --prefix flora run preview"
+  }
+}
