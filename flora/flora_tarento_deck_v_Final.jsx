@@ -128,7 +128,7 @@ function TitleScene({ active }) {
       {/* Right: warehouse photo */}
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px 24px 88px", overflow: "hidden" }}>
         <img
-          src="/warehouse.png"
+          src={`${import.meta.env.BASE_URL}warehouse.png`}
           alt="Warehouse operations"
           style={{
             width: "100%", height: "100%", objectFit: "contain",
@@ -144,12 +144,12 @@ function TitleScene({ active }) {
       <div style={{ position: "absolute", bottom: 44, left: 0, right: 0, height: 44, borderTop: `1px solid ${BORDER}`, background: `${BG}`, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 48px", opacity: active ? 1 : 0, transition: `opacity 0.9s ${ease} 0.5s`, zIndex: 4 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 4, textTransform: "uppercase", color: DIMMED }}>PREPARED FOR</span>
-          <img src="/flora-logo.png" alt="Flora Food Group" style={{ height: 30, objectFit: "contain", filter: "brightness(0) opacity(0.55)" }} />
+          <img src={`${import.meta.env.BASE_URL}flora-logo.png`} alt="Flora Food Group" style={{ height: 30, objectFit: "contain", filter: "brightness(0) opacity(0.55)" }} />
         </div>
         <div style={{ width: 1, height: 24, background: BORDER }} />
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: 4, textTransform: "uppercase", color: DIMMED }}>PRESENTED BY</span>
-          <img src="/tarento-logo.svg" alt="Tarento" style={{ height: 38, objectFit: "contain", mixBlendMode: "multiply" }} />
+          <img src={`${import.meta.env.BASE_URL}tarento-logo.svg`} alt="Tarento" style={{ height: 38, objectFit: "contain", mixBlendMode: "multiply" }} />
         </div>
       </div>
     </div>
