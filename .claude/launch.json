@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "flora-deck",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "flora", "run", "dev"],
-      "port": 5173
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--port", "5173"],
+      "port": 5173,
+      "cwd": "flora"
     }
   ]
 }
