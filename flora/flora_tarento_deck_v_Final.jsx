@@ -398,7 +398,7 @@ function GoodLooksScene({ active }) {
     { Icon: () => <PalletIcon size={18} opacity={1} />, color: SAND, text: "Production staging triggers on PP order release. No phone calls, no manual transfer order creation, no escalation to find where materials are." },
     { Icon: () => <DockIcon size={18} opacity={1} />, color: MOSS, text: "Dock supervisors get a four-hour early warning when a delayed inbound delivery is on the critical path for a production order." },
     { Icon: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke={SAGE} strokeWidth="1.5" /><path d="M5 10a7 7 0 0014 0" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /><line x1="12" y1="17" x2="12" y2="22" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /></svg>, color: SAGE, text: "Factory floor operatives confirm transfers by voice. No screen, no gloves off, no confirmation bias. Validates against the open order before accepting." },
-    { Icon: () => <TruckIcon size={20} opacity={1} />, color: TERRA, text: "Outbound runs against a despatch plan tied to truck departure windows. Live status on every delivery. Supervisors intervene only when the system cannot resolve." },
+    { Icon: () => <TruckIcon size={20} opacity={1} />, color: TERRA, text: "Outbound runs against a despatch plan tied to truck departure windows. Supervisors intervene only when the system cannot resolve." },
   ];
   const phases = [
     { label: "WM NOW", horizon: "0–6 months", color: SAND, items: ["PP-WM integration", "Inbound accuracy workflows", "Outbound despatch intelligence"] },
