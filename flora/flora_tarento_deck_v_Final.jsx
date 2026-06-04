@@ -305,10 +305,10 @@ const proofScenes = [
     industry: "Food and Beverage",
     WIcon: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke={SAGE} strokeWidth="1.5" /><path d="M5 10a7 7 0 0014 0" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /><line x1="12" y1="17" x2="12" y2="22" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /></svg>,
     header: "Gloves on. Cold storage. RF was not designed for this.",
-    voice: "We have architected this specifically for factory floor conditions and are in active PoC development. The design question that shaped the entire architecture was practical: can an operative use this with gloves on, in a cold store, with noise around them?",
+    voice: "We are in active PoC development on this architecture. The design question that shaped it was practical: can an operative confirm a transaction with gloves on, in a cold store, with noise around them? We have not deployed this with a live customer yet, but the architecture is validated and the feasibility path is clear.",
     challenge: "Standard RF requires screen reading and keyboard input. In F&B factory conditions, gloves reduce accuracy, cold storage makes screens unreliable, and noise makes visual interaction difficult. Operatives confirm quantities without verifying because the transaction accepts any input.",
     built: "Conversational AI voice layer on SAP BTP, tied directly to EWM transaction logic. Operative speaks a command, system validates against the open transfer order, transaction completes with no screen interaction. Architecture validated and PoC in development — not yet a live customer deployment, but a proven technical design. Requires a sufficiently advanced S/4HANA version with EWM active; a technical feasibility check against the current landscape is a prerequisite.",
-    outcomes: [{ value: "20–30%", label: "Projected productivity gain" }, { value: "45–60%", label: "Projected RF error reduction" }, { value: "3–4 mo", label: "Estimated deployment" }],
+    outcomes: [{ value: "20–30%", label: "Target range based on PoC design" }, { value: "45–60%", label: "Target range based on PoC design" }, { value: "—", label: "Timeline subject to feasibility assessment" }],
     warehouseEl: <ForkliftIcon size={90} opacity={0.05} style={{ position: "absolute", bottom: 20, right: 40 }} />,
   },
 ];
