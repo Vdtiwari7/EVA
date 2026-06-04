@@ -103,7 +103,7 @@ function MetricCard({ value, label, name, color, delay, active }) {
     <div style={{ flex: 1, background: `${color}0C`, border: `1px solid ${color}20`, borderRadius: 10, padding: "16px 14px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(14px)", transition: `opacity 0.6s ${ease} ${delay}s, transform 0.6s ${ease} ${delay}s` }}>
       <div style={{ fontSize: 32, fontFamily: "'DM Serif Display', Georgia, serif", color, marginBottom: 2 }}>{value}</div>
       {name && <div style={{ fontSize: 12.5, fontWeight: 600, color, opacity: 0.9, fontFamily: "'Inter', sans-serif", marginBottom: 3 }}>{name}</div>}
-      <div style={{ fontSize: 14.5, color: MUTED, fontFamily: "'Inter', sans-serif", lineHeight: 1.4 }}>{label}</div>
+      <div style={{ fontSize: 15.5, color: MUTED, fontFamily: "'Inter', sans-serif", lineHeight: 1.4 }}>{label}</div>
     </div>
   );
 }
@@ -201,11 +201,11 @@ function MirrorScene({ active }) {
             <div key={`l${i}`} style={{ display: "flex", gap: 10, alignItems: "flex-start", background: `${TERRA}07`, border: `1px solid ${TERRA}14`, borderRadius: 8, padding: "10px 12px", opacity: active ? 1 : 0, transform: active ? "translateX(0)" : "translateX(-12px)", transition: `opacity 0.5s ${ease} ${0.22 + i * 0.08}s, transform 0.5s ${ease} ${0.22 + i * 0.08}s` }}>
               <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: TERRA, opacity: 0.6, minWidth: 18, marginTop: 1 }}>{item.num}</div>
               <div>
-                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 500, color: TEXT, lineHeight: 1.45 }}>{item.text}</div>
+                <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, fontWeight: 500, color: TEXT, lineHeight: 1.45 }}>{item.text}</div>
               </div>
             </div>
             <div key={`r${i}`} style={{ display: "flex", alignItems: "flex-start", gap: 10, background: `${right[i].color}09`, border: `1px solid ${right[i].color}18`, borderLeft: `3px solid ${right[i].color}70`, borderRadius: "0 8px 8px 0", padding: "9px 12px", opacity: active ? 1 : 0, transform: active ? "translateX(0)" : "translateX(12px)", transition: `opacity 0.5s ${ease} ${0.22 + i * 0.08}s, transform 0.5s ${ease} ${0.22 + i * 0.08}s` }}>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.55 }}>{right[i].text}</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.55 }}>{right[i].text}</div>
             </div>
           </>
         ))}
@@ -246,8 +246,8 @@ function RealityScene({ active }) {
               <p.Icon />
             </IconCircle>
             <div>
-              <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 15, color: TEXT, marginBottom: 4 }}>{p.title}</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.55 }}>{p.text}</div>
+              <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 16, color: TEXT, marginBottom: 4 }}>{p.title}</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.55 }}>{p.text}</div>
             </div>
           </div>
         ))}
@@ -346,7 +346,7 @@ function ProofScene({ active, scene }) {
         ].map((block, i) => (
           <div key={i} style={{ background: `${block.col}12`, border: `1px solid ${block.col}35`, borderRadius: 9, padding: "12px 14px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(12px)", transition: `opacity 0.58s ${ease} ${0.22 + i * 0.1}s, transform 0.58s ${ease} ${0.22 + i * 0.1}s` }}>
             <div style={{ fontSize: 9, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'JetBrains Mono', monospace", color: block.col, marginBottom: 7, fontWeight: 700 }}>{block.title}</div>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.65, margin: 0 }}>{block.text}</p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.65, margin: 0 }}>{block.text}</p>
           </div>
         ))}
       </div>
@@ -381,7 +381,7 @@ function ApproachScene({ active }) {
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: s.color, opacity: 0.7, minWidth: 24, marginTop: 2 }}>{s.num}</div>
             <div>
               <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 17, color: s.color, marginBottom: 4 }}>{s.title}</div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.55 }}>{s.text}</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.55 }}>{s.text}</div>
             </div>
           </div>
         ))}
@@ -416,7 +416,7 @@ function GoodLooksScene({ active }) {
         {items.map((item, i) => (
           <div key={i} style={{ display: "flex", gap: 9, alignItems: "flex-start", background: `${item.color}12`, border: `1px solid ${item.color}35`, borderRadius: 8, padding: "9px 11px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(10px)", transition: `opacity 0.52s ${ease} ${0.18 + i * 0.1}s, transform 0.52s ${ease} ${0.18 + i * 0.1}s` }}>
             <IconCircle color={item.color} size={30}><item.Icon /></IconCircle>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.45, margin: 0 }}>{item.text}</p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.45, margin: 0 }}>{item.text}</p>
           </div>
         ))}
       </div>
@@ -435,7 +435,7 @@ function GoodLooksScene({ active }) {
                 {p.items.map((it, j) => (
                   <div key={j} style={{ display: "flex", gap: 6, marginBottom: j < p.items.length - 1 ? 5 : 0 }}>
                     <div style={{ width: 3, height: 3, borderRadius: "50%", background: p.color, marginTop: 4, flexShrink: 0 }} />
-                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.35 }}>{it}</span>
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.35 }}>{it}</span>
                   </div>
                 ))}
               </div>
@@ -470,7 +470,7 @@ function AskScene({ active }) {
           {" session"}
         </h2>
 
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, margin: "0 0 28px", lineHeight: 1.6, maxWidth: 400, opacity: active ? 1 : 0, transition: `opacity 0.65s ${ease} 0.25s` }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, margin: "0 0 28px", lineHeight: 1.6, maxWidth: 400, opacity: active ? 1 : 0, transition: `opacity 0.65s ${ease} 0.25s` }}>
           A focused 2-hour working session. We come in, we listen, and we leave with a shared picture of where to start.
         </p>
 
@@ -484,7 +484,7 @@ function AskScene({ active }) {
               <div style={{ width: 26, height: 26, borderRadius: "50%", border: `1px solid ${SAGE}50`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: SAGE }}>{item.num}</span>
               </div>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.55, marginTop: 4 }}>{item.text}</span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.55, marginTop: 4 }}>{item.text}</span>
             </div>
           ))}
         </div>
@@ -496,12 +496,12 @@ function AskScene({ active }) {
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 5, textTransform: "uppercase", color: DIMMED, marginBottom: 16 }}>THE SESSION</div>
           <div style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 72, color: SAND, lineHeight: 1, marginBottom: 8 }}>2 hrs</div>
           <div style={{ width: 40, height: 1, background: SAND, opacity: 0.4, margin: "16px auto" }} />
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.6, margin: "0 0 32px", maxWidth: 260, marginLeft: "auto", marginRight: "auto" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.6, margin: "0 0 32px", maxWidth: 260, marginLeft: "auto", marginRight: "auto" }}>
             Your setup. Your priorities. Your highest-impact WM improvement opportunity.
           </p>
 
           <div style={{ background: `${SAND}0C`, border: `1px solid ${SAND}22`, borderRadius: 10, padding: "14px 18px", opacity: active ? 1 : 0, transition: `opacity 0.7s ${ease} 0.7s` }}>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, margin: 0, lineHeight: 1.55, fontStyle: "italic" }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, margin: 0, lineHeight: 1.55, fontStyle: "italic" }}>
               Not a scoping exercise but a working session that ends with something actionable.
             </p>
           </div>
@@ -541,7 +541,7 @@ function AppendixOverview({ active }) {
         {items.map((item, i) => (
           <div key={i} style={{ background: `${item.color}12`, border: `1px solid ${item.color}35`, borderRadius: 9, padding: "13px 15px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(11px)", transition: `opacity 0.52s ${ease} ${0.18 + i * 0.11}s, transform 0.52s ${ease} ${0.18 + i * 0.11}s` }}>
             <Badge label={item.label} color={item.color} small />
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.55, margin: "8px 0 0" }}>{item.text}</p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.55, margin: "8px 0 0" }}>{item.text}</p>
           </div>
         ))}
       </div>
@@ -563,7 +563,7 @@ function AppendixPP({ active }) {
               {col.items.map((it, j) => (
                 <div key={j} style={{ display: "flex", gap: 7 }}>
                   <div style={{ width: 3, height: 3, borderRadius: "50%", background: col.color, marginTop: 6, flexShrink: 0 }} />
-                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.5 }}>{it}</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.5 }}>{it}</span>
                 </div>
               ))}
             </div>
@@ -585,7 +585,7 @@ function AppendixTask({ active }) {
         ].map((item, i) => (
           <div key={i} style={{ background: `${item.color}07`, border: `1px solid ${item.color}16`, borderRadius: 9, padding: "12px 16px", opacity: active ? 1 : 0, transform: active ? "translateX(0)" : "translateX(-12px)", transition: `opacity 0.55s ${ease} ${0.18 + i * 0.13}s, transform 0.55s ${ease} ${0.18 + i * 0.13}s` }}>
             <Badge label={item.label} color={item.color} small />
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.6, margin: "8px 0 0" }}>{item.text}</p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.6, margin: "8px 0 0" }}>{item.text}</p>
           </div>
         ))}
       </div>
@@ -604,7 +604,7 @@ function AppendixVoice({ active }) {
         ].map((item, i) => (
           <div key={i} style={{ background: `${item.color}07`, border: `1px solid ${item.color}16`, borderRadius: 9, padding: "13px 14px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(11px)", transition: `opacity 0.55s ${ease} ${0.18 + i * 0.13}s, transform 0.55s ${ease} ${0.18 + i * 0.13}s` }}>
             <Badge label={item.label} color={item.color} small />
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.6, margin: "8px 0 0" }}>{item.text}</p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.6, margin: "8px 0 0" }}>{item.text}</p>
           </div>
         ))}
       </div>
@@ -623,7 +623,7 @@ function AppendixAI({ active }) {
         ].map((item, i) => (
           <div key={i} style={{ background: `${item.color}07`, border: `1px solid ${item.color}16`, borderRadius: 9, padding: "12px 16px", opacity: active ? 1 : 0, transform: active ? "translateX(0)" : "translateX(-12px)", transition: `opacity 0.55s ${ease} ${0.18 + i * 0.13}s, transform 0.55s ${ease} ${0.18 + i * 0.13}s` }}>
             <Badge label={item.label} color={item.color} small />
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.6, margin: "8px 0 0" }}>{item.text}</p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.6, margin: "8px 0 0" }}>{item.text}</p>
           </div>
         ))}
       </div>
@@ -647,14 +647,14 @@ function AppendixRoadmap({ active }) {
             {p.items.map((it, j) => (
               <div key={j} style={{ display: "flex", gap: 6, marginBottom: 5 }}>
                 <div style={{ width: 3, height: 3, borderRadius: "50%", background: p.color, marginTop: 5, flexShrink: 0 }} />
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, lineHeight: 1.4 }}>{it}</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, lineHeight: 1.4 }}>{it}</span>
               </div>
             ))}
           </div>
         ))}
       </div>
       <div style={{ background: `${TERRA}08`, border: `1px solid ${TERRA}20`, borderRadius: 9, padding: "11px 15px", opacity: active ? 1 : 0, transition: `opacity 0.65s ${ease} 0.65s` }}>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 14.5, color: MUTED, margin: 0, lineHeight: 1.55 }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15.5, color: MUTED, margin: 0, lineHeight: 1.55 }}>
           <span style={{ color: TERRA, fontWeight: 500 }}>SAP EoL note:</span> Mainstream WM maintenance ends 2027. Plan deliberately rather than be forced into it reactively.
         </p>
       </div>
@@ -686,7 +686,7 @@ function ThankYouScene({ active }) {
           Thank you,<br /><em style={{ color: SAND }}>Flora.</em>
         </h1>
 
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: MUTED, lineHeight: 1.6, maxWidth: 460, margin: "0 0 36px", opacity: active ? 1 : 0, transition: `opacity 0.7s ${ease} 0.3s` }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, color: MUTED, lineHeight: 1.6, maxWidth: 460, margin: "0 0 36px", opacity: active ? 1 : 0, transition: `opacity 0.7s ${ease} 0.3s` }}>
           We look forward to understanding your factory floor reality better and building something that genuinely works for your teams.
         </p>
 
