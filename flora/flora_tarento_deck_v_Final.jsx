@@ -5,8 +5,8 @@ const SAGE = "#3A6855";
 const TERRA = "#8A3218";
 const MOSS = "#4A6C46";
 const TEXT = "#2A2018";
-const MUTED = "rgba(42,32,24,0.52)";
-const DIMMED = "rgba(42,32,24,0.24)";
+const MUTED = "rgba(42,32,24,0.78)";
+const DIMMED = "rgba(42,32,24,0.45)";
 const BORDER = "rgba(42,32,24,0.12)";
 const BG = "#E8DFD2";
 const ease = "cubic-bezier(0.16,1,0.3,1)";
@@ -173,7 +173,7 @@ function MirrorScene({ active }) {
     { text: "Inbound dock accuracy workflows, outbound despatch intelligence grounded in client engagements", color: SAGE },
     { text: "Scheduling engine, RF pick-to-pack-to-stage, slotting and HU automation with outcome metrics", color: MOSS },
     { text: "7 field-tested lessons including master data first, change management as contractual, and exception-first design", color: SAND },
-    { text: "Voice layer on SAP BTP, tied directly to WM transaction logic, built for F&B factory conditions", color: SAGE },
+    { text: "Voice layer on SAP BTP, tied directly to EWM transaction logic, built for F&B factory conditions", color: SAGE },
     { text: "PP-WM integration as the centrepiece use case, not a footnote, with event-driven staging logic", color: TERRA },
   ];
 
@@ -269,21 +269,8 @@ const proofScenes = [
     voice: "In multiple S/4HANA factory WM engagements, the highest-friction point was always the same: production changed the plan, and the warehouse found out by walking over and asking. The WM integration layer we built addresses exactly this.",
     challenge: "WM creates transfer orders manually or via batch with no real-time event trigger from PP order release. When schedules change intra-day, WM cannot re-prioritise staging tasks. With MES systems at production sites, the integration gap becomes even sharper.",
     built: "Enhanced IDOC/BAPI integration layer creating event-driven staging tasks on PP order release — proven delivery in S/4HANA factory environments. An agentic AI overlay for proactive staging alerts is in active PoC development, extending this integration without requiring migration.",
-    outcomes: [{ value: "30–40%", label: "Staging delay reduction" }, { value: "2–3 FTE", label: "Coordination saved per site" }, { value: "15–25%", label: "Less WIP buffer needed" }],
+    outcomes: [{ value: "30–40%", label: "Staging delay reduction" }, { value: "2–3 FTE", label: "Coordination saved per site" }, { value: "15–25%", label: "Reduction in work-in-progress inventory buffer" }],
     warehouseEl: <PalletIcon size={80} opacity={0.055} style={{ position: "absolute", bottom: 30, right: 50 }} />,
-  },
-  {
-    label: "VOICE-RF",
-    color: SAGE,
-    region: "EMEA",
-    industry: "Food and Beverage",
-    WIcon: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke={SAGE} strokeWidth="1.5" /><path d="M5 10a7 7 0 0014 0" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /><line x1="12" y1="17" x2="12" y2="22" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /></svg>,
-    header: "Gloves on. Cold storage. RF was not designed for this.",
-    voice: "We have architected this specifically for factory floor conditions and are in active PoC development. The design question that shaped the entire architecture was practical: can an operative use this with gloves on, in a cold store, with noise around them?",
-    challenge: "Standard RF requires screen reading and keyboard input. In F&B factory conditions, gloves reduce accuracy, cold storage makes screens unreliable, and noise makes visual interaction difficult. Operatives confirm quantities without verifying because the transaction accepts any input.",
-    built: "Conversational AI voice layer on SAP BTP, tied directly to WM transaction logic. Operative speaks a command, system validates against the open transfer order, transaction completes with no screen interaction. Architecture validated and PoC in development — not yet a live customer deployment, but a proven technical design.",
-    outcomes: [{ value: "20–30%", label: "Projected productivity gain" }, { value: "45–60%", label: "Projected RF error reduction" }, { value: "3–4 mo", label: "Estimated deployment" }],
-    warehouseEl: <ForkliftIcon size={90} opacity={0.05} style={{ position: "absolute", bottom: 20, right: 40 }} />,
   },
   {
     label: "INBOUND ACCURACY",
@@ -310,6 +297,19 @@ const proofScenes = [
     built: "Outbound planning overlay aggregating open deliveries against truck departure windows — delivered capability. Agentic re-prioritisation that pushes urgent tasks to the operative queue when a critical delivery falls behind is in active PoC development, extending the delivered outbound logic.",
     outcomes: [{ value: "15–25%", label: "On-time despatch uplift" }, { value: "10–18%", label: "Less vehicle underutilisation" }, { value: "30–40%", label: "Supervisor time saved" }],
     warehouseEl: <TruckIcon size={100} opacity={0.05} style={{ position: "absolute", bottom: 20, right: 40 }} />,
+  },
+  {
+    label: "VOICE-RF",
+    color: SAGE,
+    region: "EMEA",
+    industry: "Food and Beverage",
+    WIcon: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke={SAGE} strokeWidth="1.5" /><path d="M5 10a7 7 0 0014 0" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /><line x1="12" y1="17" x2="12" y2="22" stroke={SAGE} strokeWidth="1.5" strokeLinecap="round" /></svg>,
+    header: "Gloves on. Cold storage. RF was not designed for this.",
+    voice: "We have architected this specifically for factory floor conditions and are in active PoC development. The design question that shaped the entire architecture was practical: can an operative use this with gloves on, in a cold store, with noise around them?",
+    challenge: "Standard RF requires screen reading and keyboard input. In F&B factory conditions, gloves reduce accuracy, cold storage makes screens unreliable, and noise makes visual interaction difficult. Operatives confirm quantities without verifying because the transaction accepts any input.",
+    built: "Conversational AI voice layer on SAP BTP, tied directly to EWM transaction logic. Operative speaks a command, system validates against the open transfer order, transaction completes with no screen interaction. Architecture validated and PoC in development — not yet a live customer deployment, but a proven technical design. Requires a sufficiently advanced S/4HANA version with EWM active; a technical feasibility check against the current landscape is a prerequisite.",
+    outcomes: [{ value: "20–30%", label: "Projected productivity gain" }, { value: "45–60%", label: "Projected RF error reduction" }, { value: "3–4 mo", label: "Estimated deployment" }],
+    warehouseEl: <ForkliftIcon size={90} opacity={0.05} style={{ position: "absolute", bottom: 20, right: 40 }} />,
   },
 ];
 
@@ -632,7 +632,7 @@ function AppendixRoadmap({ active }) {
   const phases = [
     { label: "WM NOW", horizon: "0–6 months", color: SAND, items: ["PP-WM integration", "Mobile GR workflows", "Outbound despatch dashboard"] },
     { label: "AI LAYER", horizon: "3–9 months", color: SAGE, items: ["Voice-RF on factory floor", "Agentic staging alerts", "AI-driven outbound re-prioritisation"] },
-    { label: "EWM DESTINATION", horizon: "18–30 months", color: MOSS, items: ["PSA-based PP integration", "Dynamic putaway, wave management", "SAP Joule and agentic exceptions"] },
+    { label: "EWM DESTINATION", horizon: "Future State", color: MOSS, items: ["PSA-based PP integration", "Dynamic putaway, wave management", "SAP Joule and agentic exception handling"] },
   ];
   return (
     <AppendixWrapper active={active} badge="THREE-LAYER ROADMAP" accentColor={MOSS} heading={<>A path Flora <em style={{ color: MOSS }}>controls.</em></>}>
