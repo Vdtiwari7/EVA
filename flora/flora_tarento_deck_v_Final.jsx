@@ -308,7 +308,7 @@ const proofScenes = [
     header: "Gloves on. Cold storage. RF was not designed for this.",
     voice: "We are in active PoC development on this architecture. The design question that shaped it was practical: can an operative confirm a transaction with gloves on, in a cold store, with noise around them? We have not deployed this with a live customer yet, but the architecture is validated and the feasibility path is clear.",
     challenge: "Standard RF requires screen reading and keyboard input. In F&B factory conditions, gloves reduce accuracy, cold storage makes screens unreliable, and noise makes visual interaction difficult. Operatives confirm quantities without verifying because the transaction accepts any input.",
-    built: "Conversational AI voice layer on SAP BTP, tied directly to EWM transaction logic. Operative speaks a command, system validates against the open transfer order, transaction completes with no screen interaction. Architecture validated and PoC in development — not yet a live customer deployment, but a proven technical design. Requires a sufficiently advanced S/4HANA version with EWM active; a technical feasibility check against the current landscape is a prerequisite.",
+    built: "Conversational AI voice layer on SAP BTP, tied directly to EWM transaction logic. Operative speaks a command, system validates against the open transfer order, transaction completes with no screen interaction. PoC architecture validated — not yet a live customer deployment. Requires S/4HANA with EWM active; feasibility check is a prerequisite.",
     outcomes: [{ value: "20–30%", name: "Productivity gain", label: "Target range based on PoC design" }, { value: "45–60%", name: "RF error reduction", label: "Target range based on PoC design" }, { value: "—", label: "Timeline subject to feasibility assessment" }],
     warehouseEl: <ForkliftIcon size={90} opacity={0.05} style={{ position: "absolute", bottom: 20, right: 40 }} />,
   },
@@ -324,8 +324,10 @@ function ProofScene({ active, scene }) {
       <div style={{ opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(12px)", transition: `opacity 0.6s ${ease}, transform 0.6s ${ease}`, marginBottom: 10, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
         <IconCircle color={color} size={40}><WIcon /></IconCircle>
         <Badge label={label} color={color} />
-        {/* Region / industry placeholders */}
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: DIMMED, letterSpacing: 2, marginLeft: 4 }}>{region} · {industry}</span>
+        {/* Region / industry badges */}
+        {[region, industry].map((tag, i) => (
+          <span key={i} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 3, textTransform: "uppercase", color: TEXT, background: `${color}14`, border: `1px solid ${color}35`, borderRadius: 4, padding: "3px 9px", opacity: 0.85 }}>{tag}</span>
+        ))}
       </div>
 
       <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 25, fontWeight: 400, color: TEXT, margin: "0 0 10px", lineHeight: 1.35, maxWidth: 720, opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(12px)", transition: `opacity 0.65s ${ease} 0.1s` }}>
@@ -333,7 +335,7 @@ function ProofScene({ active, scene }) {
       </h2>
 
       {/* Autobiographical voice sentence */}
-      <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 13, fontStyle: "italic", color: MUTED, margin: "0 0 16px", lineHeight: 1.6, maxWidth: 680, opacity: active ? 1 : 0, transition: `opacity 0.65s ${ease} 0.18s` }}>
+      <p style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 14, fontStyle: "italic", color: TEXT, opacity: active ? 0.82 : 0, margin: "0 0 16px", lineHeight: 1.6, maxWidth: 680, transition: `opacity 0.65s ${ease} 0.18s` }}>
         {voice}
       </p>
 
@@ -343,8 +345,8 @@ function ProofScene({ active, scene }) {
           { title: "WHAT WAS BUILT", text: built, col: color },
         ].map((block, i) => (
           <div key={i} style={{ background: `${block.col}07`, border: `1px solid ${block.col}16`, borderRadius: 9, padding: "12px 14px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(12px)", transition: `opacity 0.58s ${ease} ${0.22 + i * 0.1}s, transform 0.58s ${ease} ${0.22 + i * 0.1}s` }}>
-            <div style={{ fontSize: 9, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'JetBrains Mono', monospace", color: block.col, marginBottom: 7 }}>{block.title}</div>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: MUTED, lineHeight: 1.6, margin: 0 }}>{block.text}</p>
+            <div style={{ fontSize: 9, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'JetBrains Mono', monospace", color: block.col, marginBottom: 7, fontWeight: 700 }}>{block.title}</div>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: TEXT, opacity: 0.75, lineHeight: 1.65, margin: 0 }}>{block.text}</p>
           </div>
         ))}
       </div>
