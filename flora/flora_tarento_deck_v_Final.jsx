@@ -98,10 +98,11 @@ function IconCircle({ children, color, size = 44 }) {
   );
 }
 
-function MetricCard({ value, label, color, delay, active }) {
+function MetricCard({ value, label, name, color, delay, active }) {
   return (
     <div style={{ flex: 1, background: `${color}0C`, border: `1px solid ${color}20`, borderRadius: 10, padding: "16px 14px", opacity: active ? 1 : 0, transform: active ? "translateY(0)" : "translateY(14px)", transition: `opacity 0.6s ${ease} ${delay}s, transform 0.6s ${ease} ${delay}s` }}>
-      <div style={{ fontSize: 28, fontFamily: "'DM Serif Display', Georgia, serif", color, marginBottom: 4 }}>{value}</div>
+      <div style={{ fontSize: 28, fontFamily: "'DM Serif Display', Georgia, serif", color, marginBottom: 2 }}>{value}</div>
+      {name && <div style={{ fontSize: 11, fontWeight: 600, color, opacity: 0.85, fontFamily: "'Inter', sans-serif", marginBottom: 3 }}>{name}</div>}
       <div style={{ fontSize: 11, color: MUTED, fontFamily: "'Inter', sans-serif", lineHeight: 1.4 }}>{label}</div>
     </div>
   );
@@ -308,7 +309,7 @@ const proofScenes = [
     voice: "We are in active PoC development on this architecture. The design question that shaped it was practical: can an operative confirm a transaction with gloves on, in a cold store, with noise around them? We have not deployed this with a live customer yet, but the architecture is validated and the feasibility path is clear.",
     challenge: "Standard RF requires screen reading and keyboard input. In F&B factory conditions, gloves reduce accuracy, cold storage makes screens unreliable, and noise makes visual interaction difficult. Operatives confirm quantities without verifying because the transaction accepts any input.",
     built: "Conversational AI voice layer on SAP BTP, tied directly to EWM transaction logic. Operative speaks a command, system validates against the open transfer order, transaction completes with no screen interaction. Architecture validated and PoC in development — not yet a live customer deployment, but a proven technical design. Requires a sufficiently advanced S/4HANA version with EWM active; a technical feasibility check against the current landscape is a prerequisite.",
-    outcomes: [{ value: "20–30%", label: "Target range based on PoC design" }, { value: "45–60%", label: "Target range based on PoC design" }, { value: "—", label: "Timeline subject to feasibility assessment" }],
+    outcomes: [{ value: "20–30%", name: "Productivity gain", label: "Target range based on PoC design" }, { value: "45–60%", name: "RF error reduction", label: "Target range based on PoC design" }, { value: "—", label: "Timeline subject to feasibility assessment" }],
     warehouseEl: <ForkliftIcon size={90} opacity={0.05} style={{ position: "absolute", bottom: 20, right: 40 }} />,
   },
 ];
@@ -349,7 +350,7 @@ function ProofScene({ active, scene }) {
       </div>
 
       <div style={{ display: "flex", gap: 10 }}>
-        {outcomes.map((o, i) => <MetricCard key={i} value={o.value} label={o.label} color={color} delay={0.4 + i * 0.11} active={active} />)}
+        {outcomes.map((o, i) => <MetricCard key={i} value={o.value} label={o.label} name={o.name} color={color} delay={0.4 + i * 0.11} active={active} />)}
       </div>
     </div>
   );
