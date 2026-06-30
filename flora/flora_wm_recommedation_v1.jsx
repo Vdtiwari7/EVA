@@ -415,7 +415,7 @@ function Scene6({ active }) {
   ];
   return (
     <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-      <div style={s[0]}><Tag color={P.muted}>Flora's Estate</Tag></div>
+      <div style={s[0]}><Tag color={P.text}>Flora's Estate</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>What Flora has — <Em color={P.sage}>and what fits</Em></H>
       </div>
