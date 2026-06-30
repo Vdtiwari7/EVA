@@ -142,12 +142,12 @@ function Scene1({ active }) {
     [Eye,         "Request to see Tarento delivery in warehouse, supply chain, and inventory contexts", PackageOpen,  "The Pandora IIS story and its relevance to Flora's 3PL visibility gap"],
   ];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag>Where We Left Off</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={46}>What you said. <Em>What we heard.</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 28, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 56, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <Label color={P.sand}>What Flora shared</Label>
           {pairs.map(([Icon, text], i) => (
@@ -176,7 +176,7 @@ function Scene2({ active }) {
   const s = useStagger(active, 3);
   const stats = [["20M","records / cycle"],["2 hr","regional SLA"],["7","DCs linked"],["41","markets"]];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={{ ...s[0], display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <Tag color={P.moss}>Tarento in Action</Tag>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -188,7 +188,7 @@ function Scene2({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={42}>Inventory visibility across a <Em color={P.moss}>fragmented global operation</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 48, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 96, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 14 }}>
             <IC icon={AlertTriangle} color={P.sand} />
@@ -242,12 +242,12 @@ function Scene3({ active }) {
     "Adopting SRM within S/4HANA now creates a second migration in 5 to 7 years",
   ];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag color={P.terra}>Option Evaluated</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>Stock Room Management — <Em color={P.terra}>a stopgap, not a solution</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 38, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 76, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.moss}>
           <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 16 }}>
             <IC icon={CheckCircle} color={P.moss} />
@@ -293,12 +293,12 @@ function Scene4({ active }) {
     [Warehouse, "4 WM-managed DCs",             "Credible future path once PP integration lands — expected Q4 2026."],
   ];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag color={P.sage}>Option Evaluated</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>SAP LGM — <Em color={P.sage}>promising, but not yet ready</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 38, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
+      <div style={{ ...s[2], marginTop: 76, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <Label color={P.sage}>Where LGM fits in Flora's landscape</Label>
           {fits.map(([Icon, label, body]) => (
@@ -356,12 +356,12 @@ function Scene5({ active }) {
     [Layers,  "18×",  "Standardized",          "One architecture across the entire factory estate"],
   ];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag color={P.sand}>Option Evaluated</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>EWM Embedded Basic — <Em>the best pick right now</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 38, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 76, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <Label color={P.sand}>What it carries that matters here</Label>
           <Body style={{ marginBottom: 14 }}>Built directly into S/4HANA. Included in the license Flora already holds. No separate deployment required.</Body>
@@ -414,12 +414,12 @@ function Scene6({ active }) {
       tag: "LGM Visibility",     fit: "Not a migration. Network visibility as a growth conversation." },
   ];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag color={P.muted}>Flora's Estate</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>What Flora has — <Em color={P.sage}>and what fits</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 48, display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14 }}>
+      <div style={{ ...s[2], marginTop: 96, display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14 }}>
         {blocks.map(({ n, label, icon, color, body, tag, fit }) => (
           <div key={n} style={{
             background: `${color}08`, borderRadius: 12,
@@ -457,19 +457,20 @@ function Scene7({ active }) {
       body:  "Distribution centers don't need factory-level depth. EWM Basic covers the WM DCs cleanly. The 11 satellite sites and 46 3PL DCs are LGM's natural fit — as a network layer, not a migration." },
   ];
   return (
-    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag color={P.sand}>Our Recommendation</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>A <Em>phased approach</Em> for Flora's warehouse estate</H>
       </div>
-      <div style={{ ...s[2], marginTop: 38, display: "flex", flexDirection: "column", gap: 14 }}>
+      <div style={{ ...s[2], marginTop: 76, display: "flex", flexDirection: "column", gap: 14 }}>
         {rows.map(({ phase, sub, color, icon, title, body }) => (
           <div key={phase} style={{
             display: "grid", gridTemplateColumns: "160px 1fr",
             borderRadius: 12, overflow: "hidden", border: `1px solid ${P.border}`,
+            minHeight: 110,
           }}>
             <div style={{
-              background: `${color}10`, padding: "0 16px",
+              background: `${color}10`, padding: "24px 16px",
               display: "flex", flexDirection: "column", alignItems: "center",
               justifyContent: "center", textAlign: "center", gap: 8,
               borderRight: `1px solid ${P.border}`,
