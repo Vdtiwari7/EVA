@@ -121,11 +121,11 @@ function TitleScene({ active }) {
       <div style={{ position: "absolute", bottom: 56, left: 80, right: 80, height: 48, borderTop: `1px solid ${P.border}`, display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 18, opacity: active ? 1 : 0, transition: `opacity 0.9s ${ease} 0.55s` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 4, textTransform: "uppercase", color: P.dimmed }}>Prepared for</span>
-          <img src="/flora-logo.png" alt="Flora Food Group" style={{ height: 28, objectFit: "contain", filter: "brightness(0) opacity(0.55)" }} />
+          <img src={`${import.meta.env.BASE_URL}flora-logo.png`} alt="Flora Food Group" style={{ height: 28, objectFit: "contain", filter: "brightness(0) opacity(0.55)" }} />
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 4, textTransform: "uppercase", color: P.dimmed }}>Presented by</span>
-          <img src="/tarento-logo.svg" alt="Tarento" style={{ height: 34, objectFit: "contain", mixBlendMode: "multiply" }} />
+          <img src={`${import.meta.env.BASE_URL}tarento-logo.svg`} alt="Tarento" style={{ height: 34, objectFit: "contain", mixBlendMode: "multiply" }} />
         </div>
       </div>
     </div>
@@ -180,7 +180,7 @@ function Scene2({ active }) {
       <div style={{ ...s[0], display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <Tag color={P.moss}>Tarento in Action</Tag>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <img src="/pandora.png" alt="Pandora" style={{ height: 28, objectFit: "contain", mixBlendMode: "multiply" }} />
+          <img src={`${import.meta.env.BASE_URL}pandora.png`} alt="Pandora" style={{ height: 28, objectFit: "contain", mixBlendMode: "multiply" }} />
           <Pill color={P.moss}>Jewellery Retail</Pill>
           <Pill color={P.moss}>Denmark / Global</Pill>
         </div>
