@@ -113,8 +113,8 @@ function TitleScene({ active }) {
         SAP Warehouse Migration<br /><Em>options &amp; recommendation</Em>
       </H>
       <div style={{ width: 48, height: 2, background: P.sand, opacity: active ? 0.45 : 0, transition: `opacity 0.7s ${ease} 0.45s`, margin: "30px 0" }} />
-      <Body style={{ fontSize: 16, lineHeight: 1.7, maxWidth: 620, color: P.muted, ...t(0.3) }}>
-        A phased path to S/4HANA-native warehouse management<br />SRM, LGM, and EWM Embedded Basic evaluated against Flora's factory, DC, and 3PL estate.
+      <Body style={{ fontSize: 16, lineHeight: 1.7, maxWidth: 720, color: P.muted, ...t(0.3) }}>
+        A phased path to S/4HANA-native warehouse management. SRM, LGM, and EWM Embedded Basic evaluated against Flora's factory, DC, and 3PL estate.
       </Body>
 
       {/* Bottom logo bar */}
@@ -145,13 +145,13 @@ function Scene1({ active }) {
     <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={s[0]}><Tag>Where We Left Off</Tag></div>
       <div style={{ ...s[1], marginTop: 48 }}>
-        <H size={46}>What you said. <Em>What we heard.</Em></H>
+        <H size={44}>What you said. <Em>What we heard.</Em></H>
       </div>
       <div style={{ ...s[2], marginTop: 56, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <Label color={P.sand}>What Flora shared</Label>
           {pairs.map(([Icon, text], i) => (
-            <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginTop: i > 0 ? 18 : 0 }}>
+            <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginTop: i > 0 ? 24 : 0 }}>
               <IC icon={Icon} color={P.sand} size={34} />
               <Body style={{ paddingTop: 5 }}>{text}</Body>
             </div>
@@ -160,7 +160,7 @@ function Scene1({ active }) {
         <Card color={P.sage}>
           <Label color={P.sage}>What we are bringing back</Label>
           {pairs.map(([, , Icon, text], i) => (
-            <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginTop: i > 0 ? 18 : 0 }}>
+            <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", marginTop: i > 0 ? 24 : 0 }}>
               <IC icon={Icon} color={P.sage} size={34} />
               <Body style={{ paddingTop: 5 }}>{text}</Body>
             </div>
@@ -186,7 +186,7 @@ function Scene2({ active }) {
         </div>
       </div>
       <div style={{ ...s[1], marginTop: 48 }}>
-        <H size={42}>Inventory visibility across a <Em color={P.moss}>fragmented global operation</Em></H>
+        <H size={44}>Inventory visibility across a <Em color={P.moss}>fragmented global operation</Em></H>
       </div>
       <div style={{ ...s[2], marginTop: 96, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
@@ -274,8 +274,8 @@ function Scene3({ active }) {
           <Cite url="https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-srm-on-premise-transition-context-timelines-successors-and-what-to-do/ba-p/14348507">SAP SRM On-Premise Transition — Context, timelines, successors, and what to do. SAP confirms no further enhancements to SRM. SAP Community, 2024.</Cite>
         </Card>
       </div>
-      <div style={{ ...s[3], marginTop: 14 }}>
-        <div style={{ background: `${P.terra}08`, borderRadius: 10, border: `1px solid ${P.terra}22`, padding: "13px 20px", display: "flex", alignItems: "center", gap: 16 }}>
+      <div style={{ ...s[3], marginTop: 32 }}>
+        <div style={{ background: `${P.terra}08`, borderRadius: 10, border: `1px solid ${P.terra}22`, borderTop: `2px solid ${P.terra}`, padding: "13px 20px", display: "flex", alignItems: "center", gap: 16 }}>
           <IC icon={AlertTriangle} color={P.terra} size={32} />
           <Body style={{ fontSize: 13 }}><strong style={{ color: P.terra, fontWeight: 500 }}>Verdict:</strong> A valid capability within S/4HANA for the simplest sites. Not the right path for 18 factories with production dependencies.</Body>
         </div>
@@ -511,7 +511,7 @@ function Scene8({ active }) {
             </div>
           </div>
           <div style={{ ...s[1], marginTop: 24 }}>
-            <H size={48}>Before we finalize — <Em>a working session</Em></H>
+            <H size={56}>Before we finalize — <Em>a working session</Em></H>
           </div>
           <div style={{ ...s[2], marginTop: 20 }}>
             <Body style={{ fontSize: 14, lineHeight: 1.8 }}>We want to ground the recommendation in how Flora's operations actually run today — not assumptions. The session is open-ended. Flora leads, we listen.</Body>
@@ -612,24 +612,30 @@ export default function FloraDeck() {
           transform: `scale(${CONTENT_SCALE})`,
           overflow: "hidden",
         }}>
+          {/* Grain texture */}
           <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.02, zIndex: 99 }}>
             <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" /></filter>
             <rect width="100%" height="100%" filter="url(#grain)" />
           </svg>
+          {/* Top accent line */}
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(to right, ${P.sand}50, ${P.sage}30, transparent)`, zIndex: 2 }} />
           {scenes.map((SceneComp, i) => (
             <div key={i} style={{ position: "absolute", inset: 0, opacity: i === current ? 1 : 0, pointerEvents: i === current ? "all" : "none", transition: `opacity 0.6s ${ease}` }}>
               <SceneComp active={i === current} />
             </div>
           ))}
-          <div onClick={() => navigate(-1)} style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "11%", cursor: "w-resize", zIndex: 50 }} />
-          <div onClick={() => navigate(1)} style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "11%", cursor: "e-resize", zIndex: 50 }} />
-          <div style={{ position: "absolute", bottom: 18, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, alignItems: "center", zIndex: 50 }}>
-            {Array.from({ length: TOTAL }, (_, i) => (
-              <div key={i} onClick={() => setCurrent(i)} style={{ height: 3, width: i === current ? 26 : 7, borderRadius: 2, background: i === current ? P.sand : `${P.sand}45`, transition: `width 0.4s ${ease}`, cursor: "pointer" }} />
-            ))}
-          </div>
-          <div style={{ position: "absolute", bottom: 14, right: 38, fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: P.dimmed, letterSpacing: 2, zIndex: 50 }}>
-            {String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}
+          <div onClick={() => navigate(-1)} style={{ position: "absolute", left: 0, top: 0, bottom: 44, width: "11%", cursor: "w-resize", zIndex: 50 }} />
+          <div onClick={() => navigate(1)} style={{ position: "absolute", right: 0, top: 0, bottom: 44, width: "11%", cursor: "e-resize", zIndex: 50 }} />
+          {/* Bottom nav strip */}
+          <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 44, background: P.bg, borderTop: `1px solid ${P.border}`, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ position: "absolute", left: 26, fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: P.dimmed, letterSpacing: 2 }}>
+              {String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}
+            </div>
+            <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+              {Array.from({ length: TOTAL }, (_, i) => (
+                <div key={i} onClick={() => setCurrent(i)} style={{ height: 3, width: i === current ? 26 : 7, borderRadius: 2, background: i === current ? P.sand : P.dimmed, transition: `width 0.4s ${ease}`, cursor: "pointer" }} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
