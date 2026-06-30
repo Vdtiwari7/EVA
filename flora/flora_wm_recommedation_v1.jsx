@@ -147,7 +147,7 @@ function Scene1({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>What you said. <Em>What we heard.</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 56, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 36, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <Label color={P.sand}>What Flora shared</Label>
           {pairs.map(([Icon, text], i) => (
@@ -188,7 +188,7 @@ function Scene2({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>Inventory visibility across a <Em color={P.moss}>fragmented global operation</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 96, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 52, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 14 }}>
             <IC icon={AlertTriangle} color={P.sand} />
@@ -247,7 +247,7 @@ function Scene3({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>Stock Room Management — <Em color={P.terra}>a stopgap, not a solution</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 76, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 44, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.moss}>
           <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 16 }}>
             <IC icon={CheckCircle} color={P.moss} />
@@ -298,7 +298,7 @@ function Scene4({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>SAP LGM — <Em color={P.sage}>promising, but not yet ready</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 76, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
+      <div style={{ ...s[2], marginTop: 44, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <Label color={P.sage}>Where LGM fits in Flora's landscape</Label>
           {fits.map(([Icon, label, body]) => (
@@ -361,7 +361,7 @@ function Scene5({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>EWM Embedded Basic — <Em>the best pick right now</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 76, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div style={{ ...s[2], marginTop: 44, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Card color={P.sand}>
           <Label color={P.sand}>What it carries that matters here</Label>
           <Body style={{ marginBottom: 14 }}>Built directly into S/4HANA. Included in the license Flora already holds. No separate deployment required.</Body>
@@ -419,7 +419,7 @@ function Scene6({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>What Flora has — <Em color={P.sage}>and what fits</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 96, display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14 }}>
+      <div style={{ ...s[2], marginTop: 52, display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14 }}>
         {blocks.map(({ n, label, icon, color, body, tag, fit }) => (
           <div key={n} style={{
             background: `${color}08`, borderRadius: 12,
@@ -462,7 +462,7 @@ function Scene7({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>A <Em>phased approach</Em> for Flora's warehouse estate</H>
       </div>
-      <div style={{ ...s[2], marginTop: 76, display: "flex", flexDirection: "column", gap: 14 }}>
+      <div style={{ ...s[2], marginTop: 44, display: "flex", flexDirection: "column", gap: 14 }}>
         {rows.map(({ phase, sub, color, icon, title, body }) => (
           <div key={phase} style={{
             display: "grid", gridTemplateColumns: "160px 1fr",
