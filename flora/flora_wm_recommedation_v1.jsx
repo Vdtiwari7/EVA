@@ -297,7 +297,7 @@ function Scene4({ active }) {
       <div style={{ ...s[1], marginTop: 48 }}>
         <H size={44}>SAP LGM — <Em color={P.sage}>promising, but not yet ready</Em></H>
       </div>
-      <div style={{ ...s[2], marginTop: 38, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "start" }}>
+      <div style={{ ...s[2], marginTop: 38, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, alignItems: "stretch" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <Label color={P.sage}>Where LGM fits in Flora's landscape</Label>
           {fits.map(([Icon, label, body]) => (
@@ -309,10 +309,17 @@ function Scene4({ active }) {
               <Body style={{ fontSize: 13 }}>{body}</Body>
             </Card>
           ))}
+          <div style={{ flex: 1, background: "rgba(58,104,85,0.07)", borderRadius: 10, border: `1px solid rgba(58,104,85,0.22)`, padding: "13px 22px", display: "flex", alignItems: "center", gap: 16 }}>
+            <IC icon={AlertTriangle} color={P.sage} size={32} />
+            <div>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 4, color: P.sage, textTransform: "uppercase", marginBottom: 4 }}>Open prerequisite</div>
+              <Body style={{ fontSize: 13 }}>LGM requires S/4HANA Cloud Private Edition 2022 minimum plus SAP BTP. Flora's current version needs confirmation before LGM can be validated for any site.</Body>
+            </div>
+          </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <Label color={P.terra}>Where LGM does not fit today</Label>
-          <Card color={P.terra}>
+          <Card color={P.terra} style={{ flex: 1 }}>
             <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 14 }}>
               <IC icon={Factory} color={P.terra} />
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 500, color: P.terra }}>18 WM-managed factories</div>
@@ -325,15 +332,6 @@ function Scene4({ active }) {
             </div>
             <Cite url="https://pages.community.sap.com/topics/logistics-management">SAP Logistics Management (LGM) — General Availability February 2026. PP integration roadmap item targeting Q4 2026. SAP Community, 2026.</Cite>
           </Card>
-        </div>
-      </div>
-      <div style={{ ...s[2], marginTop: 14 }}>
-        <div style={{ background: "rgba(58,104,85,0.07)", borderRadius: 10, border: `1px solid rgba(58,104,85,0.22)`, padding: "13px 22px", display: "flex", alignItems: "center", gap: 16 }}>
-          <IC icon={AlertTriangle} color={P.sage} size={32} />
-          <div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 4, color: P.sage, textTransform: "uppercase", marginBottom: 4 }}>Open prerequisite</div>
-            <Body style={{ fontSize: 13 }}>LGM requires S/4HANA Cloud Private Edition 2022 minimum plus SAP BTP. Flora's current version needs confirmation before LGM can be validated for any site.</Body>
-          </div>
         </div>
       </div>
     </div>
@@ -390,6 +388,81 @@ function Scene5({ active }) {
             ))}
           </div>
         </Card>
+      </div>
+    </div>
+  );
+}
+
+// ── Scene 5b — Capability comparison ─────────────────────────────────────────
+function SceneComparison({ active }) {
+  const s = useStagger(active, 3);
+  const options = [
+    { tag: "Low Complexity", name: "Stock Room Management", abbr: "SRM", color: P.terra,
+      verdict: "Transition vehicle",
+      verdictNote: "SAP positions this for 'small warehouse operations.' Not a permanent strategic platform.",
+      points: [
+        "Transfer order-based picking & putaway",
+        "Basic bin management, batch & stock status",
+        "RF mobile execution",
+        "Annual, continuous & cycle-count PI",
+        "Basic inbound / outbound processing",
+      ],
+    },
+    { tag: "Cloud-Native SaaS", name: "SAP Logistics Management", abbr: "LGM", color: P.moss,
+      verdict: "Promising, not yet ready",
+      verdictNote: "Built for distribution scale-out. No native PP-WM integration. Not designed for factory-embedded workflows.",
+      points: [
+        "Multi-site rollout at speed",
+        "Business Network connectivity",
+        "Cloud-managed, always latest version",
+        "Ideal for lean & satellite sites",
+        "Additional SaaS license cost",
+      ],
+    },
+    { tag: "Recommended", name: "EWM Embedded Basic", abbr: "EWM", color: P.sage,
+      verdict: "Best fit for Flora",
+      verdictNote: "Full EWM platform embedded in S/4HANA. PP, QM, MES integration out of the box. No extra license cost.",
+      points: [
+        "Full PP integration: prod. staging, Kanban, MES",
+        "QM integration via inspection lots",
+        "HU management — nested, GS1/SSCC compliant",
+        "Advanced putaway & removal strategies",
+        "Included in S/4HANA license — no extra cost",
+      ],
+    },
+  ];
+  return (
+    <div style={{ padding: "52px 68px", height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+      <div style={s[0]}><Tag color={P.sand}>Capability Comparison</Tag></div>
+      <div style={{ ...s[1], marginTop: 28 }}>
+        <H size={40}>Three options — <Em color={P.sage}>what each one actually delivers</Em></H>
+      </div>
+      <div style={{ ...s[1], marginTop: 6 }}>
+        <Body style={{ color: P.muted, fontSize: 13 }}>SAP now provides four warehouse execution models — three are relevant to Flora's context</Body>
+      </div>
+      <div style={{ ...s[2], marginTop: 24, display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, alignItems: "start" }}>
+        {options.map(({ tag, name, color, verdict, verdictNote, points }) => (
+          <div key={name} style={{
+            background: `${color}07`, borderRadius: 12,
+            border: `1px solid ${P.border}`, borderTop: `2px solid ${color}`,
+            padding: "20px 20px 20px",
+          }}>
+            <div style={{ marginBottom: 12 }}><Pill color={color}>{tag}</Pill></div>
+            <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 22, color: P.text, lineHeight: 1.2, marginBottom: 18 }}>{name}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 18 }}>
+              {points.map(p => (
+                <div key={p} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
+                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: color, marginTop: 7, flexShrink: 0 }} />
+                  <Body style={{ fontSize: 13, lineHeight: 1.6 }}>{p}</Body>
+                </div>
+              ))}
+            </div>
+            <div style={{ padding: "12px 14px", borderRadius: 8, background: `${color}10`, border: `1px solid ${color}22` }}>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: 4, color, textTransform: "uppercase", marginBottom: 6 }}>{verdict}</div>
+              <Body style={{ fontSize: 12, fontStyle: "italic", color: P.muted, lineHeight: 1.55 }}>{verdictNote}</Body>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -514,7 +587,7 @@ function Scene8({ active }) {
             </div>
           </div>
           <div style={{ ...s[1], marginTop: 24 }}>
-            <H size={48}>Before we finalize — <Em>a working session</Em></H>
+            <H size={48}>Before we finalize —<br/><Em>a working session</Em></H>
           </div>
           <div style={{ ...s[2], marginTop: 20 }}>
             <Body style={{ fontSize: 14, lineHeight: 1.8 }}>We want to ground the recommendation in how Flora's operations actually run today — not assumptions. The session is open-ended. Flora leads, we listen.</Body>
@@ -549,7 +622,7 @@ function Scene8({ active }) {
 }
 
 // ── Shell ─────────────────────────────────────────────────────────────────────
-const scenes = [TitleScene, Scene1, Scene2, Scene3, Scene4, Scene5, Scene6, Scene7, Scene8];
+const scenes = [TitleScene, Scene1, Scene2, Scene3, Scene4, Scene5, SceneComparison, Scene6, Scene7, Scene8];
 const TOTAL = scenes.length;
 
 export default function FloraDeck() {
@@ -640,4 +713,3 @@ export default function FloraDeck() {
     </div>
   );
 }
- 
