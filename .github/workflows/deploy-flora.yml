@@ -9,15 +9,21 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+  deployments: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -37,8 +43,30 @@ jobs:
         env:
           GITHUB_PAGES: true
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Clear stale Pages deployments
+        run: |
+          IDS=$(gh api repos/${{ github.repository }}/deployments \
+            --jq '[.[] | select(.environment=="github-pages")] | .[].id')
+          for ID in $IDS; do
+            STATE=$(gh api repos/${{ github.repository }}/deployments/$ID/statuses \
+              --jq '.[0].state // "none"')
+            if [[ "$STATE" != "success" && "$STATE" != "inactive" ]]; then
+              gh api repos/${{ github.repository }}/deployments/$ID/statuses \
+                -X POST -f state=inactive --silent
+              echo "Cleared deployment $ID (was: $STATE)"
+            fi
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: flora/dist
+          path: flora/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
