@@ -289,7 +289,6 @@ function Scene4({ active }) {
   const s = useStagger(active, 3);
   const fits = [
     [MapPin,    "11 virtual / satellite DCs",   "Low complexity, no production integration dependency."],
-    [Globe,     "46 physical 3PL DCs",          "LGM's Business Network creates visibility without replacing the 3PL."],
     [Warehouse, "4 WM-managed DCs",             "Credible future path once PP integration lands — expected Q4 2026."],
   ];
   return (
@@ -440,7 +439,7 @@ function Scene6({ active }) {
       </div>
       <div style={{ ...s[3], marginTop: 18, padding: "10px 18px", borderRadius: 8, background: "rgba(42,32,24,0.04)", border: "1px solid rgba(42,32,24,0.08)" }}>
         <Body style={{ fontSize: 11, color: P.muted, fontStyle: "italic" }}>
-          These recommendations reflect current understanding of Flora's estate. Fit assessments — particularly for the 4 WM-managed DCs — will be confirmed and refined following the working session.
+          These recommendations reflect current understanding of Flora's estate. Fit assessments will be confirmed and refined following the working session.
         </Body>
       </div>
     </div>
