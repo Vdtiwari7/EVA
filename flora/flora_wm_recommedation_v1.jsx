@@ -271,7 +271,7 @@ function Scene3({ active }) {
               <Body>{t}</Body>
             </div>
           ))}
-          <Cite url="https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-srm-on-premise-transition-context-timelines-successors-and-what-to-do/ba-p/14348507">SAP SRM On-Premise Transition — Context, timelines, successors, and what to do. SAP confirms no further enhancements to SRM. SAP Community, 2024.</Cite>
+          <Cite url="https://community.sap.com/t5/supply-chain-management-q-a/le-wm-is-ending-understanding-stock-room-management-vs-ewm-what-s-next-for/qaq-p/14214387">LE-WM is ending: Understanding Stock Room Management vs EWM — What's next for WM customers. SAP Community, 2024.</Cite>
         </Card>
       </div>
       <div style={{ ...s[3], marginTop: 14 }}>
